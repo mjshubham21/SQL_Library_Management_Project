@@ -37,16 +37,47 @@ WHERE return_date LIKE "%2024-05%";
 
 -- 5. Count how many books each member has issued.
 
+SELECT M.member_id, M.member_name,COUNT(*) AS books_per_member
+FROM members AS M LEFT JOIN issued_status AS I
+ON M.member_id = I.issued_member_id
+GROUP BY M.member_id;
+
 -- 6. Show the details of members who have never issued any book.
+
+SELECT *
+FROM members
+WHERE member_id NOT IN (
+	SELECT issued_member_id
+    FROM issued_status
+);
 
 -- 7. Find the earliest and latest book issue date in the system.
 
+SELECT *
+FROM issued_status
+ORDER BY issued_date;
+
 -- 8. Get the names of employees who issued books to member `C109`.
+
+SELECT DISTINCT(E.emp_name), I.issued_member_id
+FROM (
+	SELECT *
+	FROM issued_status
+	WHERE issued_member_id = "C109"
+) AS I LEFT JOIN employees AS E
+ON I.issued_emp_id = E.emp_id;
 
 -- 9. Display all books that have been returned along with their return dates.
 
+SELECT return_book_name, return_date
+FROM return_status;
+
 -- 10. Get the top 5 most recently issued books.
 
+SELECT *
+FROM issued_status
+ORDER BY issued_date DESC
+LIMIT 5;
 
 -- Intermediate-Level Adhoc Queries (11–20)
 
