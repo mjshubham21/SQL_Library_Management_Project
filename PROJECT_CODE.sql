@@ -79,7 +79,7 @@ FROM issued_status
 ORDER BY issued_date DESC
 LIMIT 5;
 
--- Intermediate-Level Adhoc Queries (11–20)
+-- Intermediate-Level Adhoc Queries (11–15)
 
 -- 11. List the number of books issued by each employee (show emp ID and count).
 
@@ -132,7 +132,7 @@ GROUP BY
   I.issued_book_name
 HAVING COUNT(*) > 1;
 
--- Advanced-Level Adhoc Queries (21–30)
+-- Advanced-Level Adhoc Queries (16–20)
 
 -- 16. Label books as `Returned`, `Not Returned`.
 

@@ -1,17 +1,19 @@
-# 📘 SQL Project by Shubham Pawar  
+# 📘 SQL Data Analysis Project by Shubham Pawar  
 # 🏛️ Library Management System: Data Insights for Efficient Book Lending
 
-![Project Banner](https://github.com/your-username/your-repo-name/blob/main/images/YOUR_BANNER_IMAGE.png)
+![Project Banner](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/assets/BANNER%20Library%20Management%20Syster%20SQL%20DA.png)
 
 ---
 
 ## 📌 Project Overview
 
-This project revolves around a simulated **Library Management System** built in MySQL Workbench. It analyzes key operations such as issuing, returning, and tracking books borrowed by members. The goal is to provide data-driven insights to optimize lending operations, improve member engagement, and streamline overdue handling.
+This project revolves around a simulated **Library Management System** built in **MySQL Workbench**. The system tracks member activity, book lending, employee involvement, and return behavior.
+
+Through a structured set of **20 real-world adhoc queries**, this project demonstrates how SQL can be used to extract valuable business insights, evaluate operational efficiency, and guide data-backed decision-making.
 
 ---
 
-## 🔗 [Project Link](https://github.com/your-username/your-repo-name/blob/main/project_queries.sql)
+## 🔗 [Project Link](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/PROJECT_CODE.sql)
 
 ---
 
@@ -23,110 +25,131 @@ This project revolves around a simulated **Library Management System** built in 
 
 ## 🧰 Tech Stack
 
-- 🐬 **MySQL Workbench** – For writing and testing SQL queries  
-- 💻 **Visual Studio Code + GitHub** – For code and version control  
-- 📊 **ER Diagrams & Schema Design** – For database structure and relationships  
+- 🐬 **MySQL Workbench** – For database design and query execution  
+- 💻 **Visual Studio Code + GitHub** – For version control and code management  
+- 🧠 **ER Modeling** – For understanding and constructing relationships between entities  
 
 ---
 
 ## 💼 My Skills
 
-- 📈 **SQL for Data Analytics**  
-- 📊 **Data Storytelling**  
-- 🛠️ **Database Normalization**  
-- 🐍 **Python (coming soon)**  
-- 💡 **Business Insight Generation**
+- 📈 **SQL for Business Insights & Analysis**  
+- 🧮 **Window Functions, CTEs & Aggregations**  
+- 🧑‍💻 **Join Optimization & Date Functions**  
+- 📊 **Data Storytelling through Queries**  
+- 🐍 **Python for Advanced Analytics** *(future integration)*  
 
 ---
 
 ## 🎯 Project Goals
 
-### 📚 Library Operations Efficiency
+### 🧠 Operational Understanding
 
-- Identify frequently borrowed books and high-activity members  
-- Track overdue returns and borrowing duration metrics  
+- Analyze trends in issuing, returning, and managing books  
+- Evaluate borrowing behavior and employee productivity  
 
-### 👨‍🏫 Member Analysis
+### 🧍‍♂️ Member Insights
 
-- Evaluate member engagement and activity trends  
-- Provide insights to encourage on-time returns and healthy borrowing habits  
+- Rank members based on borrowing activity  
+- Track delayed or early returns with precision  
+- Understand member loyalty through frequent borrowing  
 
-### 🧾 Record Keeping & Trends
+### 📘 Book Circulation Trends
 
-- Join and filter tables like `members`, `books`, `issued_status`, and `return_status`  
-- Understand usage patterns across members and books  
+- Spot most and least issued books  
+- Identify books repeatedly borrowed by same member  
+- Understand issue-return frequency to manage inventory  
 
 ---
 
 ## 📊 Insights & Expected Outcomes
 
-- 🕒 Optimized book return timelines based on average borrow durations  
-- 📘 Popular books identified for potential stocking and expansion  
-- 🔄 Cleaner handling of overdue returns using date calculations  
-- 📈 Actionable trends in member borrowing behavior
+- 🕒 **Average return durations** per member to improve book availability  
+- 🔄 **Returned vs Not Returned** classification for active lending control  
+- 🥇 **Top-performing employees and members** in terms of book engagement  
+- 📚 **High-demand books and genres** to prioritize stocking  
+- 🔢 **Window functions** (like DENSE_RANK & PARTITION BY) for ranking and running totals  
+- 📅 **Monthly trends** for book issues and returns to optimize library staff scheduling
 
 ---
 
-## 📚 Library Data Queries
+## 📚 Library Data Queries (Adhoc Questions Outputs / Project)
 
-### 1. Display all issued books  
-![Q1](https://github.com/your-username/your-repo-name/blob/main/images/q1.png)
+> The project is divided into 3 levels of complexity:
+> - 🟢 **Basic-Level (1–10)**  
+> - 🟡 **Intermediate-Level (11–15)**  
+> - 🔴 **Advanced-Level (16–20)**  
 
-### 2. Display all returned books  
-![Q2](https://github.com/your-username/your-repo-name/blob/main/images/q2.png)
+---
 
-### 3. Find members who issued books more than once  
-![Q3](https://github.com/your-username/your-repo-name/blob/main/images/q3.png)
+### 🟢 Basic-Level Adhoc Queries (1–10)
 
-### 4. List books never returned  
-![Q4](https://github.com/your-username/your-repo-name/blob/main/images/q4.png)
+#### 1. List all books that have never been issued.  
+![Q1](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q1.png)
 
-### 5. Most frequently issued book  
-![Q5](https://github.com/your-username/your-repo-name/blob/main/images/q5.png)
+#### 2. Find the total number of members registered in the system.  
+![Q2](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q2.png)
 
-### 6. Book issued by the highest number of members  
-![Q6](https://github.com/your-username/your-repo-name/blob/main/images/q6.png)
+#### 3. Show all books issued by employee `E106`.  
+![Q3](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q3.png)
 
-### 7. Members who returned books late  
-![Q7](https://github.com/your-username/your-repo-name/blob/main/images/q7.png)
+#### 4. Display the list of books returned in the month of May 2024.  
+![Q4](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q4.png)
 
-### 8. Books returned within 7 days of issue  
-![Q8](https://github.com/your-username/your-repo-name/blob/main/images/q8.png)
+#### 5. Count how many books each member has issued.  
+![Q5](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q5.png)
 
-### 9. Books issued and returned on the same day  
-![Q9](https://github.com/your-username/your-repo-name/blob/main/images/q9.png)
+#### 6. Show the details of members who have never issued any book.  
+![Q6](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q6.png)
 
-### 10. Member who borrowed the most books  
-![Q10](https://github.com/your-username/your-repo-name/blob/main/images/q10.png)
+#### 7. Find the earliest and latest book issue date in the system.  
+![Q7](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q7.png)
 
-### 11. Most borrowed genre (if applicable)  
-![Q11](https://github.com/your-username/your-repo-name/blob/main/images/q11.png)
+#### 8. Get the names of employees who issued books to member `C109`.  
+![Q8](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q8.png)
 
-### 12. Issued books count by date  
-![Q12](https://github.com/your-username/your-repo-name/blob/main/images/q12.png)
+#### 9. Display all books that have been returned along with their return dates.  
+![Q9](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q9.png)
 
-### 13. Book not issued at all  
-![Q13](https://github.com/your-username/your-repo-name/blob/main/images/q13.png)
+#### 10. Get the top 5 most recently issued books.  
+![Q10](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q10.png)
 
-### 14. Top 5 members with most timely returns  
-![Q14](https://github.com/your-username/your-repo-name/blob/main/images/q14.png)
+---
 
-### 15. Member with longest average return time  
-![Q15](https://github.com/your-username/your-repo-name/blob/main/images/q15.png)
+### 🟡 Intermediate-Level Adhoc Queries (11–15)
 
-### 16. Average time between issue and return per member  
-![Q16](https://github.com/your-username/your-repo-name/blob/main/images/q16.png)
+#### 11. List the number of books issued by each employee.  
+![Q11](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q11.png)
 
-### 17. Members who never returned a book  
-![Q17](https://github.com/your-username/your-repo-name/blob/main/images/q17.png)
+#### 12. Show members who have returned all the books they issued.  
+![Q12](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q12.png)
 
-### 18. Percentage of books returned  
-![Q18](https://github.com/your-username/your-repo-name/blob/main/images/q18.png)
+#### 13. For each book, show how many times it has been issued.  
+![Q13](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q13.png)
 
-### 19. Books with maximum gap between issue and return  
-![Q19](https://github.com/your-username/your-repo-name/blob/main/images/q19.png)
+#### 14. Find the most active member (who issued the most books).  
+![Q14](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q14.png)
 
-### 20. Monthly trend of book issues and returns  
-![Q20](https://github.com/your-username/your-repo-name/blob/main/images/q20.png)
+#### 15. Display books that have been issued multiple times to the same member.  
+![Q15](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q15.png)
+
+---
+
+### 🔴 Advanced-Level Adhoc Queries (16–20)
+
+#### 16. Label books as `Returned`, `Not Returned`.  
+![Q16](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q16.png)
+
+#### 17. Use `DENSE_RANK()` to rank members based on number of books issued.  
+![Q17](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q17.png)
+
+#### 18. Use `PARTITION BY` to show issue count per member with a running total.  
+![Q18](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q18.png)
+
+#### 19. List members who returned books within 7 days of issue.  
+![Q19](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q19.png)
+
+#### 20. Calculate the average time between issue and return for each member.  
+![Q20](https://github.com/mjshubham21/SQL_Library_Management_Project/blob/main/Code%20Outputs/Q20.png)
 
 ---
