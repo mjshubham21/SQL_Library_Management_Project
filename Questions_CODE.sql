@@ -146,11 +146,38 @@ ON I.issued_id = R.issued_id;
 
 -- 17. Use `DENSE_RANK()` to rank members based on the number of books issued.
 
+SELECT issued_member_id, books_issued,
+	   DENSE_RANK() OVER (ORDER BY books_issued DESC) AS member_rank
+FROM (
+  SELECT issued_member_id, COUNT(*) AS books_issued
+  FROM issued_status
+  GROUP BY issued_member_id
+) AS member_issue_count;
+
 -- 18. Using `PARTITION BY`, show issue count per member, with a running total of issues.
+
+SELECT issued_member_id, COUNT(*) OVER (PARTITION BY issued_member_id ORDER BY issued_id) as issue_per_member
+FROM issued_status;
 
 -- 19. List members who returned books within 7 days of issuing (need subquery or CTE).
 
--- 20. Calculate the average time between issue and return for each member.
+SELECT M.member_id, M.member_name
+FROM return_status AS R LEFT JOIN issued_status AS I
+ON R.issued_id = I.issued_id LEFT JOIN members AS M
+ON I.issued_member_id = M.member_id
+WHERE DATEDIFF(R.return_date, I.issued_date) <= 7;
+
+SELECT *
+FROM issued_status;
+
+-- 20. Calculate the average time between issue and return for each member. --
+
+SELECT I.issued_member_id, AVG(DATEDIFF(R.return_date, I.issued_date)) AS return_time
+FROM return_status AS R INNER JOIN issued_status AS I
+ON I.issued_id = R.issued_id
+GROUP BY I.issued_member_id;
+
+-- Finished code on 16-05-2025, Friday;
 
 -- These queries demonstrate my ability to work with:
 
