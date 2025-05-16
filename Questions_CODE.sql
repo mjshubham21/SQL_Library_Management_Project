@@ -83,47 +83,74 @@ LIMIT 5;
 
 -- 11. List the number of books issued by each employee (show emp ID and count).
 
--- 12. Find members who have issued more than 3 books.
+SELECT issued_emp_id, COUNT(*) AS total_books_issued
+FROM issued_status
+GROUP BY issued_emp_id;
 
--- 13. Show members who have returned all the books they issued.
+-- 12. Show members who have returned all the books they issued.
 
--- 14. List the books which have been issued but not returned yet.
+SELECT I.issued_member_id, R.issued_id
+FROM issued_status AS I LEFT JOIN return_status AS R
+ON I.issued_id = R.issued_id
+WHERE I.issued_id IN (R.issued_id);
 
--- 15. For each book, show how many times it has been issued.
+-- 13. For each book, show how many times it has been issued.
 
--- 16. Find the most active member (who issued the most books).
+SELECT B.isbn, B.book_title, COUNT(*) AS no_of_issues
+FROM books AS B LEFT JOIN issued_status AS I
+ON B.isbn = I.issued_book_isbn
+GROUP BY B.isbn;
 
--- 17. Get all book names and return dates where the return happened more than 30 days after the issue date.
+-- 14. Find the most active member (who issued the most books).
 
--- 18. Display books that have been issued multiple times to the same member.
+SELECT issued_member_id, COUNT(*) AS total_books_issued
+FROM issued_status
+GROUP BY issued_member_id
+ORDER BY total_books_issued DESC
+LIMIT 1;
 
--- 19. List members and the total number of books they returned.
+-- 15. Display books that have been issued multiple times to the same member.
 
--- 20. Get a list of employees who have helped issue books that were later returned.
+SELECT M.member_id, M.member_name, I.issued_book_isbn, I.issued_book_name, COUNT(*) AS count_of_issue_per_member
+FROM issued_status AS I LEFT JOIN MEMBERS AS M
+ON M.member_id = I.issued_member_id
+GROUP BY M.member_id, M.member_name, I.issued_book_isbn, I.issued_book_name
+HAVING  COUNT(*) > 1
+ORDER BY M.member_id;
 
+-- Chat GPT Approach:
+SELECT M.member_id, M.member_name, I.issued_book_isbn,
+	   I.issued_book_name,
+	   COUNT(*) AS count_of_issue_per_member
+FROM MEMBERS AS M 
+LEFT JOIN issued_status AS I
+  ON M.member_id = I.issued_member_id
+GROUP BY 
+  M.member_id, 
+  M.member_name, 
+  I.issued_book_isbn, 
+  I.issued_book_name
+HAVING COUNT(*) > 1;
 
 -- Advanced-Level Adhoc Queries (21–30)
 
--- 21. Use `JOIN` to show: member name, book name, issue date, return date.
+-- 16. Label books as `Returned`, `Not Returned`.
 
--- 22. Use `LEFT JOIN` to list all issued books with their return status (if returned or not).
+SELECT I.issued_book_name,
+	CASE
+    WHEN I.issued_id = R.issued_id THEN "RETURNED"
+    ELSE "NOT_RETURNED"
+    END AS return_label
+FROM issued_status AS I LEFT JOIN return_status AS R
+ON I.issued_id = R.issued_id;
 
--- 23. Use `CASE` to label books as `Returned`, `Not Returned`.
+-- 17. Use `DENSE_RANK()` to rank members based on the number of books issued.
 
--- 24. Use `RANK()` to assign a rank to employees based on the number of books they’ve issued.
+-- 18. Using `PARTITION BY`, show issue count per member, with a running total of issues.
 
--- 25. Use `DENSE_RANK()` to rank members based on the number of books issued.
+-- 19. List members who returned books within 7 days of issuing (need subquery or CTE).
 
--- 26. Using `PARTITION BY`, show issue count per member, with a running total of issues.
-
--- 27. Using `PARTITION BY`, find the first and last book issued by each employee.
-
--- 28. List members who returned books within 7 days of issuing (need subquery or CTE).
-
--- 29. Calculate the average time between issue and return for each member.
-
--- 30. Show books that have been issued to multiple members (distinct member count > 1).
-
+-- 20. Calculate the average time between issue and return for each member.
 
 -- These queries demonstrate my ability to work with:
 
